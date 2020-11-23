@@ -1,0 +1,88 @@
+package com.yufu.testDraw;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JSpinner;
+import javax.swing.JLabel;
+import java.awt.GridLayout;
+import java.awt.image.BufferedImage;
+
+import javax.swing.SwingConstants;
+import java.awt.FlowLayout;
+import java.awt.Graphics2D;
+
+public class 多边形面板test extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					多边形面板test frame = new 多边形面板test();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public 多边形面板test() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 181, 196);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		JPanel panel = new JPanel();
+		contentPane.add(panel, BorderLayout.CENTER);
+
+		BufferedImage img = new BufferedImage(15, 15, 4);
+		Graphics2D g2D=img.createGraphics();
+		g2D.setColor(Color.white);
+		g2D.fillRect(0, 0, img.getWidth(), img.getHeight());
+		g2D.setColor(Color.BLACK);
+		
+
+		
+		JButton btnNewButton = new JButton();btnNewButton.setIcon(new ImageIcon(img));
+		panel.add(btnNewButton);
+		
+		JPanel panel_1 = new JPanel();
+		contentPane.add(panel_1, BorderLayout.SOUTH);
+		panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		JSpinner spinner = new JSpinner();
+		panel_1.add(spinner);
+		
+		JLabel lblNewLabel = new JLabel("宽");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_1.add(lblNewLabel);
+		
+		JSpinner spinner_2 = new JSpinner();
+		panel_1.add(spinner_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("高");
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_1.add(lblNewLabel_3);
+		
+		
+		
+	}
+
+}
